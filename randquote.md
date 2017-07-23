@@ -57,4 +57,70 @@
 
 ## Developing
 
-*to be continue*
+ต่อไปจะเป็นการเริ่มเขียน code ให้เปิด Visual Studio Code (VSCode) ขึ้นมา แล้วไปที่เมนู File > Open Folder... และเลือกโฟลเดอร์ `quotr` ที่เราสร้างไว้
+
+คราวนี้มาดูโฟลเดอร์ และไฟล์ที่น่าสนใจก่อน ในตอนแรก มีอยู่ไม่มากคือ
+
+- `src\` อันนี้เป็นที่เก็บ source code ของเรา ส่วนใหญ่เราจะเขียน แก้ไข code ของเราในโฟลเดอร์นี้ รวมถึงโฟลเดอร์ย่อย
+- `src\assets\` จะเก็บไฟล์พวก .css หรือไฟล์รูปภาพต่าง ๆ
+- `src\App.vue` จะเป็นไฟล์หลักที่แสดงผลหน้าเว็บ
+- `index.html` เป็นไฟล์ใช้เข้าถึงไฟล์อื่น ๆ ของเรา จัดเป็น entry point ของตัว web app
+
+ส่วนที่เหลือ รู้ไว้ใช่ว่า
+
+- `build\` ที่เก็บ script ในการ build สำหรับใช้งานจริง หรือ สร้างเซิฟเวอร์ทดสอบ
+- `config\` สำหรับเก็บไฟล์ config ของ project
+- `node_modules` เก็บ package ต่าง ๆ ที่ดาวโหลดมาผ่าน yarn
+- `static\` เก็บไฟล์ static อย่างรูปภาพ (แต่ตอนนี้เราจะเก็บใน `src\assets\` แทน)
+- `packages.json` เป็นไฟล์ตั้งค่าของ node.js สำหรับ project นี้
+
+ที่เหลือไม่ได้ยุ่งมันบ่อย ๆ ไว้เมื่อมันเกี่ยวข้อง จะพูดถึงอีกที
+
+### App.vue
+
+เปิดไฟล์ `src\App.vue` ขึ้นมา ภายในไฟล์จะแบ่งเป็น 3 ส่วนคือ `<template />`, `<script />` และ `<style />` ตามคอนเซ็ปท์ของ Vue ที่เรียกว่า single file component คือการเก็บ code ที่เกี่ยวข้องกันไว้ในไฟล์เดียวกันนั่นเอง
+
+```HTML
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <hello></hello>
+  </div>
+</template>
+
+<script>
+import Hello from './components/Hello'
+
+export default {
+  name: 'app',
+  components: {
+    Hello
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+```
+
+สำหรับ project นี้จะแก้ไขแค่ไฟล์นี้ไฟล์เดียว และเฉพาะ `<template />` กับ `<style />` เท่านั้น
+
+#### Layout
+
+เริ่มต้นด้วยการวางโครงสร้างกันก่อน เราต้องคิดก่อนว่า จะให้เว็บออกมาหน้าตายังไง ซึ่งผมต้องการให้มันออกมาแบบนี้
+
+![Quotr](images/quotr/result.jpg)
+
+*ภาพ background จากเกม Starcraft II ของ Blizzard ใช้เพื่อการศึกษาเท่านั้น*
+
+มองออกไหม ว่าควรจะจัดวาง layout อย่างไร มี tag ไหนบ้างที่เกี่ยวข้อง
+
+*to be continue...*
